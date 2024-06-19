@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  react:
+    build:
+      context: ./demo_frontend
+      dockerfile: REACT_DOCKERFILE
+    volumes:
+      - ./demo_frontend/REACT_DOCKERFILE:/demo_frontend/REACT_DOCKERFILE
+    ports:
+      - "3000:3000"
+
+  spring:
+    build:
+      context: ./demo_backend
+      dockerfile: SPRING_DOCKERFILE
+    volumes:
+      - ./demo_backend/SPRING_DOCKERFILE:/demo_backend/SPRING_DOCKERFILE
+    ports:
+      - "8090:8090"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    network_mode: host

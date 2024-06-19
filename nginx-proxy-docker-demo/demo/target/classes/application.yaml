@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: demo
+  security:
+    oauth2:
+      registration:
+        google:
+          client-id: 1062665072865-suqjnugf2mmuhbavj7pb7qs0h2521cbn.apps.googleusercontent.com
+          client-secret: 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
+          scope: openid, email
+  resourceserver:
+    jwt:
+      issuer-uri: https://accounts.google.com
+      jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
