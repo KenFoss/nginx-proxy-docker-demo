@@ -10,13 +10,13 @@ function Login () {
       // However since we are redirecting to the backend getting a token is
       const params = new URLSearchParams({
         client_id: '1062665072865-8dhbc8sil84rgpmsmoleou1v86244qt0.apps.googleusercontent.com',
-        redirect_uri: 'http://localhost:3000/dashboard',
+        redirect_uri: '/dashboard',
         scope: 'email profile openid',
         response_type: 'id_token',
         prompt: 'consent'
       });
 
-      window.location.href = `https://accounts.google.com/o/oauth2/auth?${params.toString()}`;
+      window.location.href = `/api/oauth2/auth?${params.toString()}`;
     } catch (error) {
       console.error(`Error initiating OAuth: ${error}`);
     }

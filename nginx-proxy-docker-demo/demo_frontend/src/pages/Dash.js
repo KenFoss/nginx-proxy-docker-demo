@@ -10,7 +10,7 @@ const Dash = () => {
 
   const isAuthenticated = async () => {
     try{
-      const response = await fetch('http://localhost:8090/oauth2/is-authenticated', {
+      const response = await fetch('/api/oauth2/is-authenticated', {
         method: 'GET',
         headers: {
           'Authorization': localStorage.getItem("DemoAuthToken"),
@@ -49,7 +49,7 @@ const Dash = () => {
             params[key] = value;
           });
     
-          const response = await fetch('http://localhost:8090/oauth2/google', {
+          const response = await fetch('/api/oauth2/google', {
             method: 'POST',
             headers: {
               'Authorization': `${params['id_token']}`,
