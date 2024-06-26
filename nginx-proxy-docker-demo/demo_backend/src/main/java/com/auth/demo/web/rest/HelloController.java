@@ -26,8 +26,8 @@ public class HelloController {
         this.googleUserRepository = googleUserRepository;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
-    @GetMapping("/hello")
+    @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"}, allowCredentials = "true")
+    @GetMapping("/api/hello")
     public ResponseEntity<Map<String, String>> getHelloMessage(HttpServletRequest request) {
         Map<String, String> response = new HashMap<>();
 

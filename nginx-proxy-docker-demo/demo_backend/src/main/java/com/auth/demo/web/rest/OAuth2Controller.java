@@ -45,8 +45,8 @@ public class OAuth2Controller {
         this.jwtGeneratorService = jwtGeneratorService;
     }
 
-    @CrossOrigin(origins="http://localhost:3000", allowCredentials ="true")
-    @PostMapping("/oauth2/google")
+    @CrossOrigin(origins={"http://localhost:3000", "http://localhost:8080"}, allowCredentials ="true")
+    @PostMapping("/api/oauth2/google")
     public ResponseEntity<Object> oauth2Callback(@RequestHeader(name = "Authorization") String authorizationHeader) {
 
         try {
@@ -99,8 +99,8 @@ public class OAuth2Controller {
         }
     }
 
-    @CrossOrigin(origins="http://localhost:3000", allowCredentials ="true")
-    @GetMapping("/oauth2/is-authenticated")
+    @CrossOrigin(origins={"http://localhost:3000", "http://localhost:8080"}, allowCredentials ="true")
+    @GetMapping("/api/oauth2/is-authenticated")
     public ResponseEntity<Object> getCsrf(){
         Map<String,Boolean> responseMap = new HashMap<>();
         responseMap.put("isAuthenticated", true);

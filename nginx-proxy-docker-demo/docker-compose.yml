@@ -6,6 +6,7 @@ networks:
 
 services:
   react:
+    container_name: google-sign-in-front-end
     build:
       context: ./demo_frontend
       dockerfile: REACT_DOCKERFILE
@@ -17,6 +18,7 @@ services:
       - mynetwork
 
   spring:
+    container_name: google-sign-in-back-end
     build:
       context: ./demo_backend
       dockerfile: SPRING_DOCKERFILE
